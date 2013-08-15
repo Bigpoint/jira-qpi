@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="__MSG_key.performance.title__"
+                 directory_title="__MSG_key.performance.title__"
+                 description="__MSG_key.performance.description__">
+        <Require feature="dynamic-height"/>
+        <Require feature="oauthpopup"/>
+        <Require feature="setprefs"/>
+        <Require feature="settitle"/>
+        <Require feature="views"/>
+        <Optional feature="atlassian.util"/>
+        <Optional feature="gadget-directory">
+        	<Param name="categories">
+        	CHARTS
+        	</Param>
+        </Optional>
+        #oauth
+        #supportedLocales("gadget.common,key.performance")
+    </ModulePrefs>
+    <UserPref name="isConfigured" datatype="hidden" default_value="false"/>
+    <UserPref name="firstTime" datatype="hidden" default_value="true"/>
+    <UserPref name="projectId" datatype="hidden"/>
+    <UserPref name="version" datatype="hidden" default_value="auto"/>
+    <UserPref name="interval" datatype="hidden" />
+    <UserPref name="period" datatype="hidden" default_value="30"/>
+    <Content type="html">
+    <![CDATA[
+        #requireResource("com.atlassian.jira.gadgets:jira-global")
+        #requireResource("net.bigpoint.jira.plugins.keyPerformanceIndicator:kpi-chart-web-resources")
+        #includeResources()
+
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+        <script type="text/javascript" language="javascript">
+        	gadgets.util.registerOnLoadHandler(function() {
+                google.load('visualization', '1', {packages: ['columnchart']});
+                google.setOnLoadCallback(init);
+            });
+
+        function init() {
+
+			AJS.$(function() {
+			   var gadget = buildKpiGadget("__ATLASSIAN_BASE_URL__",
+			                        "__MSG_key.performance.title__",
+			                        "__MSG_key.performance.subtitle__");
+			});
+			}
+</script>
+
+  ]]>
+  </Content>
+</Module>

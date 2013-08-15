@@ -1,0 +1,46 @@
+            #container {
+                padding:15px;
+            }
+            #no-versions-warning {
+                line-height: 1.4;
+                font-size: 12px;
+            }
+            #days-box {
+                text-align: center;
+            }
+            #days-value {
+                text-align: center;
+                font-size: 5em;
+            }
+            #days-text {
+                padding-bottom: 15px;
+            }
+            #version-link {
+                text-align: center;
+            }
+            #no-future-versions-warning {
+                padding: 15px;
+            }
+            .view {
+                padding:0.5em 1em;
+            }
+            .overdue {
+                color: #cc0000;
+            }
+            .future-release {
+                color: #00cc00;
+            }
+            .today {
+                color: #cc0000;
+            }
+            #days-text .today {
+                font-weight: bold;
+            }
+
+            .icon {
+                padding-top: 3px;
+                padding-right: 3px;
+            }
+            .disabled {
+                color: #C0C0C0;
+            }

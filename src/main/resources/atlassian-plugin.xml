@@ -1,0 +1,48 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}"
+	name="${project.name}" plugins-version="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}" />
+
+	</plugin-info>
+
+
+	<!-- Registers the gadget spec as a plugin module. This allows the gadget 
+		to appear in the gadget directory and also allows administrators to disable/enable 
+		the gadget. -->
+	<!-- <gadget key="key-performance-gadget" location="key-performance-gadget.xml" 
+		/> -->
+	<gadget key="key-performance-chart-gadget" location="key-performance/kpiChart.xml" />
+
+	<!-- test, remove this line -->
+	<!-- ><gadget key="User-activity-gadget" location="useractivity.xml" /> -->
+
+	<!-- Makes the gadget Locale messages available for the gadget's use. -->
+	<resource type="i18n" location="i18n/i18n" name="i18n" />
+
+	<!-- <web-resource key="key-performance-web-resources"> <resource type="download" 
+		name="key-performance-gadget.js" location="key-performance-gadget.js"> <property 
+		key="content-type" value="text/javascript" /> </resource> <resource type="download" 
+		name="key-performance-gadget.css" location="/key-performance-gadget.css"> 
+		<property key="content-type" value="text/css" /> </resource> </web-resource> -->
+
+	<web-resource key="kpi-chart-web-resources">
+		<resource type="download" name="kpi-chart.js" location="key-performance/kpiChart.js">
+			<property key="content-type" value="text/javascript" />
+		</resource>
+		<resource type="download" name="kpi-chart.css" location="key-performance/kpiChart.css">
+			<property key="content-type" value="text/css" />
+		</resource>
+	</web-resource>
+
+
+	<!--Automatically finds all JAX-RS resource classes in the plugin and publishes 
+		them. -->
+	<rest key="key-performance-gadget-rest-resources" path="/key-performance"
+		version="1.0">
+		<description>Provides the REST resource.
+		</description>
+	</rest>
+
+</atlassian-plugin>
